@@ -9,9 +9,9 @@
         <v-card-subtitle> </v-card-subtitle>
         <v-card-text v-text="description"></v-card-text>
         <div class="pa-4 pt-0">
-          <Tag name="Groupset" :value="groupset"/>
-          <Tag name="Brakes" :value="brakes"/>
-          <Tag name="Frame material" :value="frameMaterial"/>
+          <Tag name="Groupset" :value="groupset" />
+          <Tag name="Brakes" :value="brakes" />
+          <Tag name="Frame material" :value="frameMaterial" />
         </div>
       </div>
       <v-avatar tile size="125">
@@ -27,7 +27,7 @@ import Tag from "./Tag";
 export default {
   name: "Bike",
   components: {
-    Tag
+    Tag,
   },
   props: {
     name: {

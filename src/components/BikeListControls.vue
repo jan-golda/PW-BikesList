@@ -56,7 +56,7 @@
     <v-spacer />
     <v-btn icon @click="toggleBikeAddOpen">
       <v-icon>
-        {{ bikeAddOpen ? "mdi-arrow-up-drop-circle" : "mdi-plus-circle"}}
+        {{ bikeAddOpen ? "mdi-arrow-up-drop-circle" : "mdi-plus-circle" }}
       </v-icon>
     </v-btn>
   </v-toolbar>

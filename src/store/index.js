@@ -15,9 +15,9 @@ export default new Vuex.Store({
     addBike(state, bike) {
       state.bikes.push({
         ...bike,
-        id: Math.max(...state.bikes.map(b => b.id)) + 1
-      })
-    }
+        id: Math.max(...state.bikes.map((b) => b.id)) + 1,
+      });
+    },
   },
   actions: {},
   modules: {},
