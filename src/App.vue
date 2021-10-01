@@ -7,7 +7,8 @@
     </v-main>
     <v-footer dark padless>
       <v-col class="text-center">
-        Jan Gołda | Project 2 | Advanced web applications | Warsaw University of Technology | 2021
+        Jan Gołda | Project 2 | Advanced web applications | Warsaw University of
+        Technology | 2021
       </v-col>
     </v-footer>
   </v-app>
