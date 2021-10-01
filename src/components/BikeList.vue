@@ -25,7 +25,7 @@ import Bike from "./Bike";
 import BikeListControls from "./BikeListControls";
 
 export default {
-  name: "BikesList",
+  name: "BikeList",
   components: {
     Bike,
     BikeListControls,

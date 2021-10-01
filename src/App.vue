@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <v-container class="my-10" style="max-width: 1000px">
-        <BikesList />
+        <BikeList />
       </v-container>
     </v-main>
     <v-footer dark padless>
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import BikesList from "./components/BikesList";
+import BikeList from "./components/BikeList";
 
 export default {
   name: "App",
   components: {
-    BikesList,
+    BikeList,
   },
 };
 </script>
