@@ -4,7 +4,7 @@
       <div>
         <v-card-title>
           {{ name }}
-          <v-chip>{{ price }} PLN</v-chip>
+          <v-chip>{{ price }} EUR</v-chip>
         </v-card-title>
         <v-card-subtitle> </v-card-subtitle>
         <v-card-text v-text="description"></v-card-text>
