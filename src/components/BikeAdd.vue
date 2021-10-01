@@ -16,10 +16,10 @@
             <v-text-field outlined dense hide-details label="Groupset" v-model="bike.groupset"/>
           </v-col>
           <v-col>
-            <v-text-field outlined dense hide-details label="Name"/>
+            <v-text-field outlined dense hide-details label="Brakes" v-model="bike.brakes"/>
           </v-col>
           <v-col>
-            <v-text-field outlined dense hide-details label="Name"/>
+            <v-select outlined dense hide-details label="Frame material" :items="frameMaterials" v-model="bike.frameMaterial"/>
           </v-col>
         </v-row>
       </div>
@@ -38,6 +38,12 @@
 </template>
 
 <script>
+const frameMaterials = [
+  'Steel',
+  'Aluminium',
+  'Carbon'
+]
+
 export default {
   name: "BikeAdd",
   data() {
@@ -48,7 +54,10 @@ export default {
         price: null,
         image: null,
         groupset: null,
-      }
+        brakes: null,
+        frameMaterial: null,
+      },
+      frameMaterials
     }
   },
   methods: {

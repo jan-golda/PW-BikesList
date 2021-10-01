@@ -69,12 +69,16 @@ const sortableProperties = [
   { text: "Name", value: "name" },
   { text: "Price", value: "price" },
   { text: "Groupset", value: "groupset" },
+  { text: "Brakes", value: "brakes" },
+  { text: "Frame material", value: "frameMaterial" },
 ];
 
 const propertiesTypes = {
   name: "alphabetical",
   price: "numeric",
   groupset: "alphabetical",
+  brakes: "alphabetical",
+  frameMaterial: "alphabetical",
 };
 
 export default {

@@ -8,6 +8,11 @@
         </v-card-title>
         <v-card-subtitle> </v-card-subtitle>
         <v-card-text v-text="description"></v-card-text>
+        <div class="pa-4 pt-0">
+          <Tag name="Groupset" :value="groupset"/>
+          <Tag name="Brakes" :value="brakes"/>
+          <Tag name="Frame material" :value="frameMaterial"/>
+        </div>
       </div>
       <v-avatar tile size="125">
         <v-img contain :src="image"></v-img>
@@ -17,8 +22,13 @@
 </template>
 
 <script>
+import Tag from "./Tag";
+
 export default {
   name: "Bike",
+  components: {
+    Tag
+  },
   props: {
     name: {
       type: String,
@@ -28,15 +38,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    image: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    price: {
-      type: Number,
-    },
+    image: String,
+    description: String,
+    price: Number,
+    groupset: String,
+    brakes: String,
+    frameMaterial: String,
   },
 };
 </script>
