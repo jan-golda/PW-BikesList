@@ -34,10 +34,6 @@ export default {
       type: String,
       required: true,
     },
-    horizontal: {
-      type: Boolean,
-      default: false,
-    },
     image: String,
     description: String,
     price: Number,

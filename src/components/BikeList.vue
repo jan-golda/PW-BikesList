@@ -1,7 +1,6 @@
 <template>
   <div>
     <BikeListControls
-      :view.sync="view"
       :sort-direction.sync="sortDirection"
       :sort-property.sync="sortProperty"
       :price-range.sync="priceRange"
@@ -14,11 +13,9 @@
       <v-col
         v-for="bike in bikes"
         v-bind:key="bike.id"
-        :cols="12"
-        :sm="view === 'list' ? 12 : 6"
-        :md="view === 'list' ? 12 : 4"
+        cols="12"
       >
-        <Bike v-bind="bike" :horizontal="view === 'list'" />
+        <Bike v-bind="bike" />
       </v-col>
     </v-row>
   </div>
@@ -38,7 +35,6 @@ export default {
   },
   data() {
     return {
-      view: "list",
       priceRange: [0, 0],
       sortDirection: "ascending",
       sortProperty: "name",

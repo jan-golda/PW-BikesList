@@ -1,8 +1,6 @@
 <template>
   <v-toolbar rounded dark>
-    <v-btn icon @click="toggleView">
-      <v-icon> mdi-view-{{ otherView }} </v-icon>
-    </v-btn>
+    <v-icon>mdi-bike</v-icon>
     <v-spacer />
     <v-btn icon @click="toggleSortDirection">
       <v-icon>
@@ -84,7 +82,6 @@ const propertiesTypes = {
 export default {
   name: "BikeListControls",
   props: {
-    view: String,
     sortDirection: String,
     sortProperty: String,
     priceRange: Array,
@@ -97,18 +94,12 @@ export default {
     };
   },
   computed: {
-    otherView() {
-      return this.view === "list" ? "grid" : "list";
-    },
     otherSortDirection() {
       return this.sortDirection === "ascending" ? "descending" : "ascending";
     },
     ...mapGetters(["minBikePrice", "maxBikePrice"]),
   },
   methods: {
-    toggleView() {
-      this.$emit("update:view", this.otherView);
-    },
     toggleSortDirection() {
       this.$emit("update:sortDirection", this.otherSortDirection);
     },
