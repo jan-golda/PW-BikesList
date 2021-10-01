@@ -11,7 +11,14 @@ export default new Vuex.Store({
     minBikePrice: (state) => Math.min(...state.bikes.map((b) => b.price)),
     maxBikePrice: (state) => Math.max(...state.bikes.map((b) => b.price)),
   },
-  mutations: {},
+  mutations: {
+    addBike(state, bike) {
+      state.bikes.push({
+        ...bike,
+        id: Math.max(...state.bikes.map(b => b.id)) + 1
+      })
+    }
+  },
   actions: {},
   modules: {},
 });

@@ -54,8 +54,10 @@
       </template>
     </v-range-slider>
     <v-spacer />
-    <v-btn icon>
-      <v-icon>mdi-plus-circle</v-icon>
+    <v-btn icon @click="toggleBikeAddOpen">
+      <v-icon>
+        {{ bikeAddOpen ? "mdi-arrow-up-drop-circle" : "mdi-plus-circle"}}
+      </v-icon>
     </v-btn>
   </v-toolbar>
 </template>
@@ -82,6 +84,7 @@ export default {
     sortDirection: String,
     sortProperty: String,
     priceRange: Array,
+    bikeAddOpen: Boolean,
   },
   data() {
     return {
@@ -110,6 +113,9 @@ export default {
     },
     changePriceRange(value) {
       this.$emit("update:priceRange", value);
+    },
+    toggleBikeAddOpen() {
+      this.$emit("update:bikeAddOpen", !this.bikeAddOpen);
     },
   },
   mounted() {

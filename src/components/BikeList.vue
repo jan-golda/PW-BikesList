@@ -5,7 +5,11 @@
       :sort-direction.sync="sortDirection"
       :sort-property.sync="sortProperty"
       :price-range.sync="priceRange"
+      :bike-add-open.sync="bikeAddOpen"
     />
+    <v-expand-transition>
+      <BikeAdd v-show="bikeAddOpen" class="mt-4" />
+    </v-expand-transition>
     <v-row class="mt-4">
       <v-col
         v-for="bike in bikes"
@@ -23,11 +27,13 @@
 <script>
 import Bike from "./Bike";
 import BikeListControls from "./BikeListControls";
+import BikeAdd from "./BikeAdd";
 
 export default {
   name: "BikeList",
   components: {
     Bike,
+    BikeAdd,
     BikeListControls,
   },
   data() {
@@ -36,6 +42,7 @@ export default {
       priceRange: [0, 0],
       sortDirection: "ascending",
       sortProperty: "name",
+      bikeAddOpen: false,
     };
   },
   computed: {
