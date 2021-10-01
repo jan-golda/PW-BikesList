@@ -16,6 +16,9 @@ export default {
 </script>
 
 <style>
+.tag {
+  white-space: nowrap;
+}
 .tag > .v-chip:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
