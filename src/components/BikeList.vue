@@ -7,14 +7,12 @@
       :bike-add-open.sync="bikeAddOpen"
     />
     <v-expand-transition>
-      <BikeAdd v-show="bikeAddOpen" class="mt-4" />
+      <v-card v-show="bikeAddOpen" dark rounded class="mt-4">
+        <BikeForm @submit="createNewBike" ref="newBikeForm"/>
+      </v-card>
     </v-expand-transition>
     <v-row class="mt-4">
-      <v-col
-        v-for="bike in bikes"
-        v-bind:key="bike.id"
-        cols="12"
-      >
+      <v-col v-for="bike in bikes" v-bind:key="bike.id" cols="12">
         <Bike v-bind="bike" />
       </v-col>
     </v-row>
@@ -24,13 +22,13 @@
 <script>
 import Bike from "./Bike";
 import BikeListControls from "./BikeListControls";
-import BikeAdd from "./BikeAdd";
+import BikeForm from "./BikeForm";
 
 export default {
   name: "BikeList",
   components: {
     Bike,
-    BikeAdd,
+    BikeForm,
     BikeListControls,
   },
   data() {
@@ -54,5 +52,11 @@ export default {
         );
     },
   },
+  methods: {
+    createNewBike(bike) {
+      this.$store.commit("addBike", bike);
+      this.$refs.newBikeForm.reset();
+    },
+  }
 };
 </script>
