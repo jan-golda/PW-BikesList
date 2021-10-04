@@ -12,11 +12,18 @@ export default new Vuex.Store({
     maxBikePrice: (state) => Math.max(...state.bikes.map((b) => b.price)),
   },
   mutations: {
-    addBike(state, bike) {
-      state.bikes.push({
+    updateBike(state, bike) {
+      // copy object and generate id if not provided
+      bike = {
         ...bike,
-        id: Math.max(...state.bikes.map((b) => b.id)) + 1,
-      });
+        id: bike.id || Math.max(...state.bikes.map((b) => b.id)) + 1.
+      };
+
+      // add or replace if bike with this id exists
+      state.bikes = [
+        ...state.bikes.filter(b => b.id !== bike.id),
+        bike
+      ];
     },
   },
   actions: {},

@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     createNewBike(bike) {
-      this.$store.commit("addBike", bike);
+      this.$store.commit("updateBike", bike);
       this.$refs.newBikeForm.reset();
     },
   }
