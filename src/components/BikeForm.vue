@@ -16,7 +16,9 @@
             dense
             label="Price"
             suffix="EUR"
-            v-model="bike.price"
+            type="number"
+            class="no-spin"
+            v-model.number="bike.price"
           />
         </v-col>
       </v-row>

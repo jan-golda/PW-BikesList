@@ -35,7 +35,7 @@
           single-line
           solo
           dense
-          class="price-input"
+          class="price-input no-spin"
         />
       </template>
       <template v-slot:append>
@@ -47,7 +47,7 @@
           single-line
           solo
           dense
-          class="price-input"
+          class="price-input no-spin"
         />
       </template>
     </v-range-slider>
@@ -119,18 +119,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .price-input {
   width: 80px;
-}
-.price-input >>> input {
-  text-align: center;
-}
-.price-input >>> input {
-  -moz-appearance: textfield;
-}
-.price-input >>> input::-webkit-outer-spin-button,
-.price-input >>> input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+
+  input {
+    text-align: center;
+  }
 }
 </style>

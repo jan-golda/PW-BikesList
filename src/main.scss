@@ -1,0 +1,10 @@
+// removes spin buttons from type=number inputs
+.no-spin input,
+input.no-spin {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
