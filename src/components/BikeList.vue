@@ -8,7 +8,7 @@
     />
     <v-expand-transition>
       <v-card v-show="bikeAddOpen" dark rounded class="mt-4">
-        <BikeForm @submit="createNewBike" ref="newBikeForm"/>
+        <BikeForm @submit="createNewBike" ref="newBikeForm" />
       </v-card>
     </v-expand-transition>
     <v-row class="mt-4">
@@ -57,6 +57,6 @@ export default {
       this.$store.commit("updateBike", bike);
       this.$refs.newBikeForm.reset();
     },
-  }
+  },
 };
 </script>

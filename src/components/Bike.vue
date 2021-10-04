@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="bike-card">
     <div class="d-flex flex-no-wrap justify-space-between pa-3">
       <div>
         <v-card-title>
@@ -14,22 +14,57 @@
           <Tag name="Frame material" :value="frameMaterial" />
         </div>
       </div>
-      <v-avatar tile size="125">
-        <v-img contain :src="image"></v-img>
-      </v-avatar>
+      <div class="d-flex flex-column justify-space-between">
+        <v-avatar tile size="125">
+          <v-img contain :src="image"></v-img>
+        </v-avatar>
+        <div class="text-center bike-card-on-hover">
+          <v-btn
+            fab
+            x-small
+            depressed
+            class="ma-1"
+            @click="editMode = !editMode"
+          >
+            <v-icon>
+              {{ editMode ? "mdi-arrow-up-drop-circle" : "mdi-pencil" }}
+            </v-icon>
+          </v-btn>
+          <v-btn fab x-small depressed class="ma-1" @click="removeBike">
+            <v-icon> mdi-delete </v-icon>
+          </v-btn>
+        </div>
+      </div>
     </div>
+    <v-expand-transition>
+      <BikeForm
+        v-if="editMode"
+        @submit="updateBike"
+        :initial-data="$props"
+        button-text="Update"
+        style="border-top: lightgrey 1px solid"
+      />
+    </v-expand-transition>
   </v-card>
 </template>
 
 <script>
 import Tag from "./Tag";
+import BikeForm from "./BikeForm";
 
 export default {
   name: "Bike",
   components: {
     Tag,
+    BikeForm,
+  },
+  data() {
+    return {
+      editMode: false,
+    };
   },
   props: {
+    id: Number,
     name: {
       type: String,
       required: true,
@@ -41,7 +76,23 @@ export default {
     brakes: String,
     frameMaterial: String,
   },
+  methods: {
+    removeBike() {
+      this.$store.commit("removeBike", this.id);
+    },
+    updateBike(bike) {
+      this.$store.commit("updateBike", { ...bike, id: this.id });
+    },
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.bike-card .bike-card-on-hover {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.bike-card:hover .bike-card-on-hover {
+  opacity: 1;
+}
+</style>

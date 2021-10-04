@@ -16,14 +16,14 @@ export default new Vuex.Store({
       // copy object and generate id if not provided
       bike = {
         ...bike,
-        id: bike.id || Math.max(...state.bikes.map((b) => b.id)) + 1.
+        id: bike.id || Math.max(...state.bikes.map((b) => b.id)) + 1,
       };
 
       // add or replace if bike with this id exists
-      state.bikes = [
-        ...state.bikes.filter(b => b.id !== bike.id),
-        bike
-      ];
+      state.bikes = [...state.bikes.filter((b) => b.id !== bike.id), bike];
+    },
+    removeBike(state, bikeId) {
+      state.bikes = [...state.bikes.filter((b) => b.id !== bikeId)];
     },
   },
   actions: {},

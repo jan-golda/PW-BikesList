@@ -3,12 +3,7 @@
     <div class="flex-grow-1 mr-7">
       <v-row>
         <v-col cols="8">
-          <v-text-field
-            outlined
-            dense
-            label="Name"
-            v-model="bike.name"
-          />
+          <v-text-field outlined dense label="Name" v-model="bike.name" />
         </v-col>
         <v-col>
           <v-text-field
@@ -66,13 +61,7 @@
         <v-avatar v-if="bike.image" tile size="125">
           <v-img :src="bike.image"></v-img>
         </v-avatar>
-        <v-skeleton-loader
-          v-else
-          dark
-          type="image"
-          width="125"
-          height="125"
-        />
+        <v-skeleton-loader v-else type="image" width="125" height="125" />
         <v-text-field
           outlined
           dense
@@ -81,7 +70,9 @@
           v-model="bike.image"
         />
       </div>
-      <v-btn light width="125" @click="$emit('submit', bike)"> {{ buttonText }} </v-btn>
+      <v-btn light width="125" @click="$emit('submit', bike)">
+        {{ buttonText }}
+      </v-btn>
     </div>
   </div>
 </template>
@@ -94,20 +85,25 @@ export default {
   props: {
     buttonText: {
       type: String,
-      default: "Create"
-    }
+      default: "Create",
+    },
+    initialData: Object,
   },
   data() {
+    let bike = {
+      name: null,
+      description: null,
+      price: null,
+      image: null,
+      groupset: null,
+      brakes: null,
+      frameMaterial: null,
+    };
+
+    if (this.initialData) bike = { ...this.initialData };
+
     return {
-      bike: {
-        name: null,
-        description: null,
-        price: null,
-        image: null,
-        groupset: null,
-        brakes: null,
-        frameMaterial: null,
-      },
+      bike,
       frameMaterials,
     };
   },
