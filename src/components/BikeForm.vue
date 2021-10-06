@@ -1,9 +1,15 @@
 <template>
-  <div class="d-flex pa-7">
+  <v-form ref="form" class="d-flex pa-7 pb-1">
     <div class="flex-grow-1 mr-7">
       <v-row>
         <v-col cols="8">
-          <v-text-field outlined dense label="Name" v-model="bike.name" />
+          <v-text-field
+            outlined
+            dense
+            label="Name"
+            v-model="bike.name"
+            :rules="[rules.required]"
+          />
         </v-col>
         <v-col>
           <v-text-field
@@ -14,6 +20,7 @@
             type="number"
             class="no-spin"
             v-model.number="bike.price"
+            :rules="[rules.required]"
           />
         </v-col>
       </v-row>
@@ -24,39 +31,40 @@
         height="100"
         label="Description"
         v-model="bike.description"
+        :rules="[rules.required]"
       />
       <v-row>
         <v-col>
           <v-text-field
             outlined
             dense
-            hide-details
             label="Groupset"
             v-model="bike.groupset"
+            :rules="[rules.required]"
           />
         </v-col>
         <v-col>
           <v-text-field
             outlined
             dense
-            hide-details
             label="Brakes"
             v-model="bike.brakes"
+            :rules="[rules.required]"
           />
         </v-col>
         <v-col>
           <v-select
             outlined
             dense
-            hide-details
             label="Frame material"
             :items="frameMaterials"
             v-model="bike.frameMaterial"
+            :rules="[rules.required]"
           />
         </v-col>
       </v-row>
     </div>
-    <div class="d-flex flex-column justify-space-between">
+    <div class="d-flex flex-column justify-space-between pb-7">
       <div class="image-picker">
         <v-avatar v-if="bike.image" tile size="125">
           <v-img :src="bike.image"></v-img>
@@ -68,17 +76,21 @@
           placeholder="Image URL"
           style="width: 125px"
           v-model="bike.image"
+          :rules="[rules.required]"
         />
       </div>
-      <v-btn light width="125" @click="$emit('submit', bike)">
+      <v-btn light width="125" @click="submit">
         {{ buttonText }}
       </v-btn>
     </div>
-  </div>
+  </v-form>
 </template>
 
 <script>
 const frameMaterials = ["Steel", "Aluminium", "Carbon"];
+const rules = {
+  required: value => !!value || 'Required',
+};
 
 export default {
   name: "BikeForm",
@@ -105,12 +117,17 @@ export default {
     return {
       bike,
       frameMaterials,
+      rules,
     };
   },
   methods: {
     reset() {
-      Object.keys(this.bike).forEach((k) => (this.bike[k] = null));
+      this.$refs.form.reset()
     },
+    submit() {
+      if(this.$refs.form.validate())
+        this.$emit('submit', this.bike);
+    }
   },
 };
 </script>
