@@ -12,9 +12,11 @@
       </v-card>
     </v-expand-transition>
     <v-row class="mt-4">
-      <v-col v-for="bike in bikes" v-bind:key="bike.id" cols="12">
-        <Bike v-bind="bike" />
-      </v-col>
+      <v-fade-transition group>
+        <v-col v-for="bike in bikes" v-bind:key="bike.id" cols="12">
+          <Bike v-bind="bike" />
+        </v-col>
+      </v-fade-transition>
     </v-row>
   </div>
 </template>
