@@ -116,6 +116,16 @@ export default {
   mounted() {
     this.$emit("update:priceRange", [this.minBikePrice, this.maxBikePrice]);
   },
+  watch: {
+    minBikePrice(val) {
+      if(val > this.priceRange[0])
+        this.changePriceRange([val, this.priceRange[1]]);
+    },
+    maxBikePrice(val) {
+      if(val < this.priceRange[1])
+        this.changePriceRange([this.priceRange[0], val]);
+    },
+  },
 };
 </script>
 
