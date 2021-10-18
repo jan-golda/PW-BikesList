@@ -13,13 +13,15 @@
           <v-img contain :src="image"></v-img>
         </v-avatar>
       </div>
-      <div class="d-flex flex-nowrap justify-space-between align-center pa-4 pt-0">
+      <div
+        class="d-flex flex-nowrap justify-space-between align-center pa-4 pt-0"
+      >
         <div>
           <Tag name="Groupset" :value="groupset" />
           <Tag name="Brakes" :value="brakes" />
           <Tag name="Frame material" :value="frameMaterial" />
         </div>
-        <div class="text-center bike-card-on-hover" style="width: 125px;">
+        <div class="text-center bike-card-on-hover" style="width: 125px">
           <v-btn
             fab
             x-small

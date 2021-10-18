@@ -89,7 +89,7 @@
 <script>
 const frameMaterials = ["Steel", "Aluminium", "Carbon"];
 const rules = {
-  required: value => !!value || 'Required',
+  required: (value) => !!value || "Required",
 };
 
 export default {
@@ -122,12 +122,11 @@ export default {
   },
   methods: {
     reset() {
-      this.$refs.form.reset()
+      this.$refs.form.reset();
     },
     submit() {
-      if(this.$refs.form.validate())
-        this.$emit('submit', this.bike);
-    }
+      if (this.$refs.form.validate()) this.$emit("submit", this.bike);
+    },
   },
 };
 </script>

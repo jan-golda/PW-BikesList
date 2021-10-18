@@ -8,8 +8,10 @@ export default new Vuex.Store({
     bikes: require("./initialBikes.json"),
   },
   getters: {
-    minBikePrice: (state) => state.bikes.length ? Math.min(...state.bikes.map((b) => b.price)) : 0,
-    maxBikePrice: (state) => state.bikes.length ? Math.max(...state.bikes.map((b) => b.price)) : 0,
+    minBikePrice: (state) =>
+      state.bikes.length ? Math.min(...state.bikes.map((b) => b.price)) : 0,
+    maxBikePrice: (state) =>
+      state.bikes.length ? Math.max(...state.bikes.map((b) => b.price)) : 0,
   },
   mutations: {
     updateBike(state, bike) {

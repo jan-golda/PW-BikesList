@@ -118,11 +118,11 @@ export default {
   },
   watch: {
     minBikePrice(val) {
-      if(val > this.priceRange[0])
+      if (val > this.priceRange[0])
         this.changePriceRange([val, this.priceRange[1]]);
     },
     maxBikePrice(val) {
-      if(val < this.priceRange[1])
+      if (val < this.priceRange[1])
         this.changePriceRange([this.priceRange[0], val]);
     },
   },
